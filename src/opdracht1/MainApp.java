@@ -3,6 +3,10 @@ package opdracht1;
 import opdracht2.TextScrambler;
 import opdracht2.TextUtil;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainApp {
 
     public static void main(String[] args) {
@@ -63,6 +67,21 @@ public class MainApp {
         textPrinter.printProcessedWords(String::toUpperCase);
         System.out.println();
 
+
+        System.out.println("Druk Woorden in cijfers met constructor referentie");
+        System.out.println("-".repeat(40));
+        textPrinter.setSentence("134 345 23 34 12212 4545 343");
+        textPrinter.printNumberValues(s -> new BigDecimal(s));
+        //shorter
+        //textPrinter.printNumberValues(BigDecimal::new);
+        System.out.println();
+
+        System.out.println("Druk Som met constructor referentie");
+        System.out.println("-".repeat(40));
+        textPrinter.setSentence("134 345 23 34 12212 4545 343");
+        textPrinter.printSum(s -> new BigDecimal(s));
+        //shorter
+        //textPrinter.printNumberValues(BigDecimal::new);
 
     }
 }

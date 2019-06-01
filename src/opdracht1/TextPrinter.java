@@ -1,6 +1,10 @@
 package opdracht1;
 
+import opdracht2.NumberParser;
 import opdracht2.WordProcessor;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class TextPrinter {
 
@@ -31,8 +35,27 @@ public class TextPrinter {
 
     }
 
+    public void printNumberValues(NumberParser numberParser) {
+        for (String s : sentence.split(" ")) {
+            System.out.println(numberParser.parse(s));
+        }
+    }
+
+    public void printSum(NumberParser parser) {
+        int x = 0;
+        for (String s : sentence.split(" ")) {
+            x += parser.parse(s).toBigInteger().intValue();
+
+        }
+        System.out.println(x);
+    }
+
     public String getSentence() {
         return sentence;
+    }
+
+    public void setSentence(String sentence) {
+        this.sentence = sentence;
     }
 }
 
