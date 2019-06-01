@@ -5,6 +5,7 @@ import opdracht2.WordProcessor;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.function.Predicate;
 
 public class TextPrinter {
 
@@ -15,10 +16,10 @@ public class TextPrinter {
     }
 
 
-    public String filteredWord(WordFilter filter) {
+    public String filteredWord(Predicate<String> predicate) {
 
         for (String s : sentence.split(" ")) {
-            if (filter.isValid(s)) {
+            if (predicate.test(s)) {
                 System.out.println(s);
             }
         }
