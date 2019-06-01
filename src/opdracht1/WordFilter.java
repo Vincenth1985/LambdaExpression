@@ -1,4 +1,4 @@
-package Opdracht1;
+package opdracht1;
 
 @FunctionalInterface
 public interface WordFilter {

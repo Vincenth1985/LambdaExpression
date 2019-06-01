@@ -1,4 +1,6 @@
-package Opdracht1;
+package opdracht1;
+
+import opdracht2.WordProcessor;
 
 public class TextPrinter {
 
@@ -21,5 +23,15 @@ public class TextPrinter {
         return null;
     }
 
+    public void printProcessedWords(WordProcessor wordProcessor) {
+        for (String s : sentence.split(" ")) {
+            System.out.println(wordProcessor.process(s));
+
+        }
+
+    }
+
 
 }
+
+

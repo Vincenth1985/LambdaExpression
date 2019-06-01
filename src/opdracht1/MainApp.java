@@ -1,4 +1,6 @@
-package Opdracht1;
+package opdracht1;
+
+import opdracht2.TextUtil;
 
 public class MainApp {
 
@@ -36,6 +38,17 @@ public class MainApp {
         System.out.println("Woorden met twee letters'e'");
         System.out.println("-".repeat(30));
         textPrinter.filteredWord(s -> s.matches("[a-zA-Z]*e[a-zA-Z]*e[a-zA-Z]*"));
+        System.out.println();
+
+
+        System.out.println("Druk Woorden Omgekeerd Met Statische methode");
+        System.out.println("-".repeat(30));
+        //Ik roep de statische methode van de interface TextUtil die dezelfde parameters en return type heeft als de process methode in Wordprocessor interface.
+        textPrinter.printProcessedWords(TextUtil::reverse);
+        System.out.println();
+
+        
+
 
 
 
