@@ -31,7 +31,9 @@ public class TextPrinter {
 
     }
 
-
+    public String getSentence() {
+        return sentence;
+    }
 }
 
 
