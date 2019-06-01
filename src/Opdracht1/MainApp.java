@@ -24,6 +24,9 @@ public class MainApp {
         System.out.println("-".repeat(30));
         textPrinter.filteredWord(s -> s.charAt(0) == 'a');
 
+        System.out.println("Woorden met tweede letter als 'e'");
+        System.out.println("-".repeat(30));
+        textPrinter.filteredWord(s -> s.charAt(1) == 'e');
 
     }
 }
