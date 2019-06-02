@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -21,7 +22,7 @@ public class MainApp {
     public static void main(String[] args) {
 
 
-        TextPrinter textPrinter = new TextPrinter("Hello this are my Lambdas, interested");
+        TextPrinter textPrinter = new TextPrinter("Hello this are my Lambdas, interested",System.out::print);
         //Gebruik van Predicate functional interface en de default methodes.
         Predicate<String> condition = s -> s.contains("e");
         Predicate<String> condition2 = s -> s.contains("a");
@@ -104,10 +105,23 @@ public class MainApp {
 
 
         System.out.println("\nOpdract 3 Standaard Functionele interfaces Oefeningen");
-        System.out.println("-".repeat(50));
+        System.out.println("-".repeat(55));
+
         Function<String, String> toUppercase = s -> s.toUpperCase();
-        Function<String, StringBuilder> toReverse = s -> new StringBuilder(s);
-        System.out.println(toUppercase.andThen(toReverse));
+        Function<String, StringBuilder> toReverse = s -> new StringBuilder(s).reverse();
+        System.out.println(toUppercase.andThen(toReverse).apply("Hello My Friend"));
+
+
+        System.out.println("\nOpdract 3 Standaard Functionele interfaces Consumer bij de constructor toegevoegd");
+        System.out.println("-".repeat(80));
+        //Mijn constructor print een sysout dankzij de consumer parameter.Is niet de bedoeling maar voor het oefenen.
+        //TextPrinter textPrinter1 = new TextPrinter("Hello", s -> System.out.println(textPrinter.getSentence()));
+
+        //Hieronder maak ik een nieuwe instantie met een consumer als parameter die geinitialiseerd word.Ik kan die nadien setten en getten.
+        TextPrinter textPrinter2 = new TextPrinter(s -> System.out.println(s.toUpperCase()));
+        textPrinter.setSentence("Test met de Consumer die bij de constructor genitialiseerd word");
+        textPrinter2.setConsumer(s-> System.out.println(s.toLowerCase()));
+        textPrinter2.getConsumer().accept(textPrinter.getSentence());
 
 
     }

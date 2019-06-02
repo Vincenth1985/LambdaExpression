@@ -12,11 +12,22 @@ import java.util.function.Predicate;
 public class TextPrinter {
 
     private String sentence;
+    private Consumer<String> consumer;
+
 
     public TextPrinter(String sentence) {
         this.sentence = sentence;
     }
 
+    public TextPrinter(Consumer<String> consumer) {
+        this.consumer = consumer;
+        //consumer.accept(this.sentence);
+    }
+
+    public TextPrinter(String sentence, Consumer<String> consumer) {
+        this.sentence = sentence;
+        this.consumer = consumer;
+    }
 
     public String filteredWord(Predicate<String> predicate, Consumer<String> consumer) {
 
@@ -33,8 +44,7 @@ public class TextPrinter {
     public void printProcessedWords(Function<String, String> wordProcessor) {
         for (String s : sentence.split(" ")) {
             //Vervang van mijn eigen WordProcessor functional interface door Function interface met aanroep naar de apply methode die een een object van een bepaalde type terug geeft in een andere type.We gebruiken hier Java.util.function interfaces.
-            System.out.println(wordProcessor.apply(s));
-
+            consumer.accept(s);
         }
 
     }
@@ -59,6 +69,14 @@ public class TextPrinter {
 
     public void setSentence(String sentence) {
         this.sentence = sentence;
+    }
+
+    public Consumer<String> getConsumer() {
+        return this.consumer;
+    }
+
+    public void setConsumer(Consumer<String> consumer) {
+        this.consumer = consumer;
     }
 }
 
