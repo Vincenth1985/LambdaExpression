@@ -6,6 +6,7 @@ import opdracht2.TextUtil;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class MainApp {
 
@@ -13,11 +14,16 @@ public class MainApp {
 
 
         TextPrinter textPrinter = new TextPrinter("Hello this are my Lambdas, interested");
+        //Gebruik van Predicate functional interface en de default methodes.
+        Predicate<String> condition = s->s.contains("e");
+        Predicate<String> condition2 = s->s.contains( "a");
+        Predicate<String> condition3 = condition2.or(condition);
+
 
 
         System.out.println("Woorden met letter 'e'");
         System.out.println("-".repeat(30));
-        textPrinter.filteredWord(s -> s.contains("e"));
+        textPrinter.filteredWord(condition);
         System.out.println();
 
 
