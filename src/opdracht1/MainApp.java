@@ -4,61 +4,74 @@ import opdracht2.TextScrambler;
 import opdracht2.TextUtil;
 
 import java.math.BigDecimal;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
+
 public class MainApp {
+
+    public static void test(int x, Predicate<Integer> predicate) {
+        System.out.println(predicate.test(x));
+    }
+
 
     public static void main(String[] args) {
 
 
         TextPrinter textPrinter = new TextPrinter("Hello this are my Lambdas, interested");
         //Gebruik van Predicate functional interface en de default methodes.
-        Predicate<String> condition = s->s.contains("e");
-        Predicate<String> condition2 = s->s.contains( "a");
+        Predicate<String> condition = s -> s.contains("e");
+        Predicate<String> condition2 = s -> s.contains("a");
         Predicate<String> condition3 = condition2.or(condition);
 
-
-
-        System.out.println("Woorden met letter 'e'");
+        //Test met de predicate en nog andere parameters.De lambda expression weet wat die moet implementeren
+        System.out.println("Predicate Interface test");
         System.out.println("-".repeat(30));
-        textPrinter.filteredWord(condition);
+        test(45, s -> s > 45);
+
+
+        System.out.println("\nWoorden met letter 'e'");
+        System.out.println("-".repeat(30));
+        textPrinter.filteredWord(condition, s -> System.out.println(s));
         System.out.println();
 
 
-        System.out.println("Woorden met meer letters dan 4");
+        System.out.println("\nWoorden met meer letters dan 4");
         System.out.println("-".repeat(30));
-        textPrinter.filteredWord(s -> s.length() > 4);
+        textPrinter.filteredWord(s -> s.length() > 4, s -> System.out.println(s));
         System.out.println();
 
 
-        System.out.println("Woorden met eerste letter a");
+        System.out.println("\nWoorden met eerste letter a");
         System.out.println("-".repeat(30));
-        textPrinter.filteredWord(s -> s.charAt(0) == 'a');
+        textPrinter.filteredWord(s -> s.charAt(0) == 'a', System.out::println);
         System.out.println();
 
 
-        System.out.println("Woorden met tweede letter als 'e'");
+        System.out.println("\nWoorden met tweede letter als 'e'");
         System.out.println("-".repeat(30));
-        textPrinter.filteredWord(s -> s.charAt(1) == 'e');
+        textPrinter.filteredWord(s -> s.charAt(1) == 'e', System.out::print);
         System.out.println();
 
 
-        System.out.println("Woorden met twee letters'e'");
+        System.out.println("\nWoorden met twee letters'e'");
         System.out.println("-".repeat(30));
-        textPrinter.filteredWord(s -> s.matches("[a-zA-Z]*e[a-zA-Z]*e[a-zA-Z]*"));
+        Predicate<String> condition6 = s -> s.matches("[a-zA-Z]*e[a-zA-Z]*e[a-zA-Z]*");
+        textPrinter.filteredWord(condition6, System.out::print);
         System.out.println();
 
 
-        System.out.println("Druk Woorden Omgekeerd Met Statische methode");
-        System.out.println("-".repeat(40));
+        System.out.println("\nDruk Woorden Omgekeerd Met Statische methode");
+        System.out.println("-".repeat(45));
         //Ik roep de statische methode van de interface TextUtil die dezelfde parameters en return type heeft als de process methode in Wordprocessor interface.
         textPrinter.printProcessedWords(TextUtil::reverse);
         System.out.println();
 
 
-        System.out.println("Druk letters Met Object Gebonden methode");
+        System.out.println("\nDruk letters Met Object Gebonden methode");
         System.out.println("-".repeat(40));
         TextScrambler textScrambler = new TextScrambler();
         //textPrinter.printProcessedWords(s -> textScrambler.scramble(s));
@@ -68,13 +81,13 @@ public class MainApp {
         System.out.println();
 
 
-        System.out.println("Druk Woorden Hoofdletter met ongebonden object methode");
+        System.out.println("\nDruk Woorden Hoofdletter met ongebonden object methode");
         System.out.println("-".repeat(40));
         textPrinter.printProcessedWords(String::toUpperCase);
         System.out.println();
 
 
-        System.out.println("Druk Woorden in cijfers met constructor referentie");
+        System.out.println("\nDruk Woorden in cijfers met constructor referentie");
         System.out.println("-".repeat(40));
         textPrinter.setSentence("134 345 23 34 12212 4545 343");
         textPrinter.printNumberValues(s -> new BigDecimal(s));
@@ -82,12 +95,13 @@ public class MainApp {
         //textPrinter.printNumberValues(BigDecimal::new);
         System.out.println();
 
-        System.out.println("Druk Som met constructor referentie");
+        System.out.println("\nDruk Som met constructor referentie");
         System.out.println("-".repeat(40));
         textPrinter.setSentence("134 345 23 34 12212 4545 343");
         textPrinter.printSum(s -> new BigDecimal(s));
         //shorter
         //textPrinter.printNumberValues(BigDecimal::new);
+
 
     }
 }
