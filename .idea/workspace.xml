@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="92263dfe-0820-46ef-ad64-798740e196a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/opdracht1/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/opdracht1/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/opdracht1/TextPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/opdracht1/TextPrinter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/opdracht1/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="734">
-              <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+            <state relative-caret-position="782">
+              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#341#342#0" expanded="true" />
@@ -318,8 +317,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/opdracht1/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
-          <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+        <state relative-caret-position="782">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#341#342#0" expanded="true" />

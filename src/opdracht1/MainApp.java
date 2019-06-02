@@ -103,5 +103,12 @@ public class MainApp {
         //textPrinter.printNumberValues(BigDecimal::new);
 
 
+        System.out.println("\nOpdract 3 Standaard Functionele interfaces Oefeningen");
+        System.out.println("-".repeat(50));
+        Function<String, String> toUppercase = s -> s.toUpperCase();
+        Function<String, StringBuilder> toReverse = s -> new StringBuilder(s);
+        System.out.println(toUppercase.andThen(toReverse));
+
+
     }
 }
