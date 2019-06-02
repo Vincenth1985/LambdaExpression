@@ -5,6 +5,7 @@ import opdracht2.WordProcessor;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class TextPrinter {
@@ -28,9 +29,10 @@ public class TextPrinter {
         return null;
     }
 
-    public void printProcessedWords(WordProcessor wordProcessor) {
+    public void printProcessedWords(Function<String,String> wordProcessor) {
         for (String s : sentence.split(" ")) {
-            System.out.println(wordProcessor.process(s));
+            //Vervang van mijn eigen WordProcessor functional interface door Function interface met aanroep naar de apply methode die een een object van een bepaalde type terug geeft in een andere type.We gebruiken hier Java.util.function interfaces.
+            System.out.println(wordProcessor.apply(s));
 
         }
 
